@@ -1,17 +1,9 @@
-# Proximal Convolutional Autoencoder
+# Proximal Convolutional Neural Network
 
-This repository contains a proximal optimization approach applied to a convolutional autoencoder, implemented using PyTorch Lightning. The project investigates accelerated proximal algorithms for non-smooth objective functions, particularly in the context of image reconstruction tasks.
+This repository contains a proximal optimization approach applied to a CNN using PyTorch. The project investigates accelerated proximal algorithms for non-smooth objective functions, particularly in the context of image classification tasks.
 
 ## Introduction
-This project explores the use of proximal algorithms, such as ISTA and FISTA, for training convolutional autoencoders. The primary objective is to compare these optimization techniques with standard gradient-based methods and analyze their convergence properties on the MNIST dataset.
-
-## Installation
-Ensure that PyTorch and PyTorch Lightning are installed. You can install them with:
-
-```sh
-pip install torch torchvision torchaudio pytorch-lightning
-```
-
+This project explores the use of proximal algorithms, such as ISTA and FISTA, for training CNNs. The primary objective is to compare these optimization techniques with standard gradient-based methods and analyze their convergence properties on the MNIST dataset.
 
 ## Experiments
 The following optimization algorithms were tested:
@@ -21,5 +13,5 @@ The following optimization algorithms were tested:
 - Fast Iterative Shrinkage-Thresholding Algorithm (FISTA)
 - FISTA with Adaptive Support and Adaptive $\mu$
 
-Each method was benchmarked on the MNIST dataset, and performance was evaluated based on reconstruction error and convergence speed.
+Each method was benchmarked on the MNIST dataset, and performance was evaluated based on accuracy, sparsity and convergence speed.
 
