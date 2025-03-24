@@ -8,6 +8,11 @@ This project explores the use of proximal algorithms, such as ISTA and FISTA, fo
 ## Experiments
 The following optimization algorithms were tested:
 - Gradient Descent (GD)
+\textbf{Optimization Problem:}
+\[\min_x f(x)\]
+\textbf{Update Rule:}
+\[x_{t+1} = x_t - \eta \nabla f(x_t)\]
+\textbf{Convergence Rate:} \( \mathcal{O}(1/t) \)
 - Accelerated Gradient Descent (AGD)
 - Iterative Shrinkage-Thresholding Algorithm (ISTA)
 - Fast Iterative Shrinkage-Thresholding Algorithm (FISTA)
