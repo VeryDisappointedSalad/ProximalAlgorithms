@@ -7,16 +7,90 @@ This project explores the use of proximal algorithms, such as ISTA and FISTA, fo
 
 ## Experiments
 The following optimization algorithms were tested:
-- Gradient Descent (GD)
-\textbf{Optimization Problem:}
-\[\min_x f(x)\]
-\textbf{Update Rule:}
-\[x_{t+1} = x_t - \eta \nabla f(x_t)\]
-\textbf{Convergence Rate:} \( \mathcal{O}(1/t) \)
-- Accelerated Gradient Descent (AGD)
-- Iterative Shrinkage-Thresholding Algorithm (ISTA)
-- Fast Iterative Shrinkage-Thresholding Algorithm (FISTA)
-- FISTA with Adaptive Support and Adaptive $\mu$
 
-Each method was benchmarked on the MNIST dataset, and performance was evaluated based on accuracy, sparsity and convergence speed.
+### Gradient Descent (GD)
+- **Optimization Problem:**  
+  \[
+  \min_x f(x)
+  \]
+- **Update Rule:**  
+  \[
+  x_{t+1} = x_t - \eta \nabla f(x_t)
+  \]
+- **Convergence Rate:**  
+  \( \mathcal{O}(1/t) \)
+
+### Accelerated Gradient Descent (AGD)
+- **Optimization Problem:**  
+  \[
+  \min_x f(x)
+  \]
+- **Update Rule:**  
+  \[
+  y_{t+1} = x_t - \eta \nabla f(x_t)
+  \]
+  \[
+  x_{t+1} = y_{t+1} + \frac{k-1}{k+2} (y_{t+1} - y_t)
+  \]
+- **Convergence Rate:**  
+  \( \mathcal{O}(1/t^2) \)
+
+### Iterative Shrinkage-Thresholding Algorithm (ISTA)
+- **Optimization Problem:**  
+  \[
+  \min_x g(x) + h(x)
+  \]
+  where \( h(x) \) is a regularization term, e.g., \( h(x) = \lambda \|x\|_1 \).
+- **Update Rule:**  
+  \[
+  x_{t+1} = \operatorname{prox}_{\lambda \eta h}(x_t - \eta \nabla g(x_t))
+  \]
+  where the proximal operator for \( L_1 \)-regularization is given by:
+  \[
+  \operatorname{prox}_{\lambda ||x||_1}(v) = 
+  \begin{cases}
+    v - \lambda, & v > \lambda \\
+    0, & |v| \leq \lambda \\
+    v + \lambda, & v < -\lambda
+  \end{cases}
+  \]
+- **Convergence Rate:**  
+  \( \mathcal{O}(1/t) \)
+
+### Fast Iterative Shrinkage-Thresholding Algorithm (FISTA)
+- **Optimization Problem:**  
+  \[
+  \min_x f(x) + g(x)
+  \]
+  where \( g(x) \) is a regularization term.
+- **Update Rule:**  
+  \[
+  y_{t+1} = \operatorname{prox}_{\lambda \eta g}(x_t - \eta \nabla f(x_t))
+  \]
+  \[
+  x_{t+1} = y_{t+1} + \frac{t-1}{t+2} (y_{t+1} - y_t)
+  \]
+- **Convergence Rate:**  
+  \( \mathcal{O}(1/t^2) \)
+
+### Adaptive \( \mu \) FISTA
+- **Modification:** Adaptive step size \( \eta \rightarrow \eta_k \):
+  \[
+  \eta_k = \frac{1}{L} + k \mu
+  \]
+- **Expected Convergence:**  
+  Empirically close to \( \mathcal{O}(1/t^2) \)
+
+### Adaptive Support FISTA
+- **Modification:** Step-size depends on support structure:
+  \[
+  \eta_k = c \frac{\|s_k \nabla f(x_k)\|^2}{\|\Phi(s_k \nabla f(x_k))\|^2}
+  \]
+  where:
+  - \( c \) is a scaling constant controlling the step size.
+  - \( s_k \) is a binary mask indicating which elements of \( x_k \) are nonzero (support of \( x_k \)).
+  - \( \nabla f(x_k) \) is the gradient of the loss function with respect to the model parameters.
+  - \( \Phi(\cdot) \) represents a transformation that captures structural information, such as a convolutional layer in a CNN.
+- **Expected Convergence:**  
+  Adaptive, may accelerate convergence in sparse problems to \( \mathcal{O}(1/t^3) \).
 
