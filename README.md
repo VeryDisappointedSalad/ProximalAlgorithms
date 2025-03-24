@@ -29,16 +29,7 @@ The following optimization algorithms were tested:
   $\min_x g(x) + h(x)$
   where $h(x) $ is a regularization term, e.g., $h(x) = \lambda \|x\|_1$.
 - **Update Rule:**  
-  $x_{t+1} = \operatorname{prox}_{\lambda \eta h}(x_t - \eta \nabla g(x_t))$
-  where the proximal operator for $L_1$-regularization is given by:
-  $
-  \operatorname{prox}_{\lambda ||x||_1}(v) = 
-  \begin{cases}
-    v - \lambda, & v > \lambda \\
-    0, & |v| \leq \lambda \\
-    v + \lambda, & v < -\lambda
-  \end{cases}
-  $
+  $x_{t+1} = \text{prox}_{\lambda \eta h}(x_t - \eta \nabla g(x_t))$
 - **Convergence Rate:**  
   $\mathcal{O}(1/t) $
 
