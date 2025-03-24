@@ -11,17 +11,13 @@ The following optimization algorithms were tested:
 - **Optimization Problem:**  
   $\min_x f(x)$
 - **Update Rule:**  
-  $
-  x_{t+1} = x_t - \eta \nabla f(x_t)
-  $
+  $x_{t+1} = x_t - \eta \nabla f(x_t)$
 - **Convergence Rate:**  
-  $ \mathcal{O}(1/t) $
+  $\mathcal{O}(1/t)$
 
 ### Accelerated Gradient Descent (AGD)
 - **Optimization Problem:**  
-  $
-  \min_x f(x)
-  $
+  $\min_x f(x)$
 - **Update Rule:**  
   $
   y_{t+1} = x_t - \eta \nabla f(x_t)
