@@ -9,9 +9,7 @@ This project explores the use of proximal algorithms, such as ISTA and FISTA, fo
 The following optimization algorithms were tested:
 ### Gradient Descent (GD)
 - **Optimization Problem:**  
-  $
-  \min_x f(x)
-  $
+  $\min_x f(x)$
 - **Update Rule:**  
   $
   x_{t+1} = x_t - \eta \nabla f(x_t)
