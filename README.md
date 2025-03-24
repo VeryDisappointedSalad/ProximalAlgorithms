@@ -27,7 +27,7 @@ The following optimization algorithms were tested:
 ### Iterative Shrinkage-Thresholding Algorithm (ISTA)
 - **Optimization Problem:**  
   $\min_x g(x) + h(x)$
-  where $h(x) $ is a regularization term, e.g., $h(x) = \lambda \|x\|_1$.
+  where $h(x)$ is a regularization term, e.g., $h(x) = \lambda \|x\|_1$.
 - **Update Rule:**  
   $x_{t+1} = \text{prox}_{\lambda \eta h}(x_t - \eta \nabla g(x_t))$
 - **Convergence Rate:**  
