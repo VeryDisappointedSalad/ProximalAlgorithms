@@ -19,7 +19,7 @@ The following optimization algorithms were tested:
 - **Optimization Problem:**  
   $\min_x f(x)$
 - **Update Rule:**  
-  $y_{t+1} = x_t - \eta \nabla f(x_t)$
+  $y_{t+1} = x_t - \eta \nabla f(x_t)$ \\
   $x_{t+1} = y_{t+1} + \frac{k-1}{k+2} (y_{t+1} - y_t)$
 - **Convergence Rate:**  
   $\mathcal{O}(1/t^2)$
@@ -38,7 +38,7 @@ The following optimization algorithms were tested:
   $\min_x f(x) + g(x)$
   where $g(x)$ is a regularization term.
 - **Update Rule:**  
-  $x_{t+1} = y_{t+1} + \frac{t-1}{t+2} (y_{t+1} - y_t)$
+  $x_{t+1} = y_{t+1} + \frac{t-1}{t+2} (y_{t+1} - y_t)$ \\
   $y_{t+1} = \text{prox}_{\lambda \eta g}(x_t - \eta \nabla f(x_t))$
 - **Convergence Rate:**  
   $\mathcal{O}(1/t^2) $
