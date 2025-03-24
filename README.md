@@ -7,7 +7,7 @@ This project explores the use of proximal algorithms, such as ISTA and FISTA, fo
 
 ## Experiments
 The following optimization algorithms were tested:
-$$ x_{t+1} = x_t - \eta \nabla f(x_t) $$
+$ x_{t+1} = x_t - \eta \nabla f(x_t) $
 ### Gradient Descent (GD)
 - **Optimization Problem:**  
   \[
